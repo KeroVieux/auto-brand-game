@@ -10,14 +10,18 @@
 		showAnswer = !showAnswer
 	}
 	const changeIndex = (number) => {
-		if ((numbers.index < brands[numbers.group].length - 1 && number > 0) || (number < 0 && numbers.index > 0)) {
+		if (!showAnswer) {
+			showAnswer = !showAnswer
+		} else if ((numbers.index < brands[numbers.group].length - 1 && number > 0) || (number < 0 && numbers.index > 0)) {
 			numbers.index += number
 			quiz = brands[numbers.group][numbers.index]
 			showAnswer = false
 		}
 	}
 	const changeGroup = (number) => {
-		if ((numbers.group < brands.length - 1 && number > 0) || (number < 0 && numbers.group > 0)) {
+		if (!showAnswer) {
+			showAnswer = !showAnswer
+		} else if ((numbers.group < brands.length - 1 && number > 0) || (number < 0 && numbers.group > 0)) {
 			numbers.group += number
 			numbers.index = 0
 			quiz = brands[numbers.group][numbers.index]
@@ -38,9 +42,8 @@
 			{/if}
 		</div>
 		<div style="margin-bottom: 10px;">
-			<button on:click={() => changeIndex(-1)}>上一个</button>
-			<button on:click={toggle}>显示答案</button>
-			<button on:click={() => changeIndex(1)}>下一个</button>
+			<button on:click={() => changeIndex(-1)}>上一题</button>
+			<button on:click={() => changeIndex(1)}>下一题</button>
 		</div>
 		<div>
 			<button on:click={() => changeGroup(-1)}>上一组</button>
