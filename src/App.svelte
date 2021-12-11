@@ -29,26 +29,30 @@
 <svelte:head>
 	<title>{numbers.group + 1}组-{numbers.index + 1}题</title>
 </svelte:head>
+<main style="height: 80%">
+	<section style="padding-top: 100px;">
+		<img src="{quiz.img}" alt="">
+		<div style="height: 64px">
+			{#if (showAnswer)}
+				<h2>{quiz.answer}</h2>
+			{/if}
+		</div>
+		<div style="margin-bottom: 10px;">
+			<button on:click={() => changeIndex(-1)}>上一个</button>
+			<button on:click={toggle}>显示答案</button>
+			<button on:click={() => changeIndex(1)}>下一个</button>
+		</div>
+		<div>
+			<button on:click={() => changeGroup(-1)}>上一组</button>
+			<button on:click={() => changeGroup(1)}>下一组</button>
+		</div>
 
-<section>
-	<img src="{quiz.img}" alt="">
-	<div style="height: 64px">
-		{#if (showAnswer)}
-			<h2>{quiz.answer}</h2>
-		{/if}
-	</div>
-	<div style="margin-bottom: 10px;">
-		<button on:click={() => changeIndex(-1)}>上一个</button>
-		<button on:click={toggle}>显示答案</button>
-		<button on:click={() => changeIndex(1)}>下一个</button>
-	</div>
-	<div>
-		<button on:click={() => changeGroup(-1)}>上一组</button>
-		<button on:click={() => changeGroup(1)}>下一组</button>
-	</div>
+	</section>
+</main>
 
-</section>
-
+<footer>
+	<p>GoBa<a href="#;">nana</a></p>
+</footer>
 <style>
 	section {
 		display: flex;
@@ -64,5 +68,23 @@
 		font-weight: 300;
 		color: #444;
 		border: 1px solid #444;
+	}
+	footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 40px;
+	}
+
+	footer a {
+		font-weight: bold;
+		color: #ff3e00;
+	}
+
+	@media (min-width: 480px) {
+		footer {
+			padding: 40px 0;
+		}
 	}
 </style>
