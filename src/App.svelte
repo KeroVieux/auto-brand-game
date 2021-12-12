@@ -19,9 +19,7 @@
 		}
 	}
 	const changeGroup = (number) => {
-		if (!showAnswer) {
-			showAnswer = !showAnswer
-		} else if ((numbers.group < brands.length - 1 && number > 0) || (number < 0 && numbers.group > 0)) {
+		if ((numbers.group < brands.length - 1 && number > 0) || (number < 0 && numbers.group > 0)) {
 			numbers.group += number
 			numbers.index = 0
 			quiz = brands[numbers.group][numbers.index]
@@ -35,7 +33,7 @@
 </svelte:head>
 <main style="height: 80%">
 	<section style="padding-top: 100px;">
-		<img src="{quiz.img}" alt="">
+		<img height="200px" src="{quiz.img}" alt="">
 		<div style="height: 64px">
 			{#if (showAnswer)}
 				<h2>{quiz.answer}</h2>
@@ -57,6 +55,10 @@
 	<p>GoBa<a href="#;">nana</a></p>
 </footer>
 <style>
+	h2 {
+		font-size: 22px;
+		font-weight: normal;
+	}
 	section {
 		display: flex;
 		flex-direction: column;
