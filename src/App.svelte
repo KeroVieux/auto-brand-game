@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>{numbers.group + 1}组-{numbers.index + 1}题</title>
+	<title>猜谜飞镖</title>
 </svelte:head>
 <main style="height: 80%">
 	<section style="padding-top: 100px;">
