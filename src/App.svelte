@@ -6,9 +6,7 @@
 	}
 	let showAnswer = false
 	let quiz = brands[numbers.group][numbers.index]
-	const toggle = () => {
-		showAnswer = !showAnswer
-	}
+	const groupArr = new Array(8)
 	const changeIndex = (number) => {
 		if (!showAnswer) {
 			showAnswer = !showAnswer
@@ -18,13 +16,11 @@
 			showAnswer = false
 		}
 	}
-	const changeGroup = (number) => {
-		if ((numbers.group < brands.length - 1 && number > 0) || (number < 0 && numbers.group > 0)) {
-			numbers.group += number
-			numbers.index = 0
-			quiz = brands[numbers.group][numbers.index]
-			showAnswer = false
-		}
+	const goToGroup = (number) => {
+		numbers.group = number - 1
+		numbers.index = 0
+		quiz = brands[numbers.group][numbers.index]
+		showAnswer = false
 	}
 </script>
 
@@ -44,13 +40,12 @@
 			<button on:click={() => changeIndex(1)}>下一题</button>
 		</div>
 		<div>
-			<button on:click={() => changeGroup(-1)}>上一组</button>
-			<button on:click={() => changeGroup(1)}>下一组</button>
+			{#each groupArr as g, i}
+				<button style="margin: 0 1px" on:click={() => goToGroup(i + 1)}>{i + 1}</button>
+			{/each}
 		</div>
-
 	</section>
 </main>
-
 <footer>
 	<p>GoBa<a href="#;">nana</a></p>
 </footer>
