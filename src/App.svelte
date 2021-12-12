@@ -1,5 +1,6 @@
 <script>
 	import { brands } from './lib/data.js';
+	let started = false
 	const numbers = {
 		group: 0,
 		index: 0
@@ -17,6 +18,7 @@
 		}
 	}
 	const goToGroup = (number) => {
+		started = true
 		numbers.group = number - 1
 		numbers.index = 0
 		quiz = brands[numbers.group][numbers.index]
@@ -29,6 +31,7 @@
 </svelte:head>
 <main style="height: 80%">
 	<section style="padding-top: 100px;">
+		{#if started}
 		<img height="200px" src="{quiz.img}" alt="">
 		<div style="height: 64px">
 			{#if (showAnswer)}
@@ -39,6 +42,9 @@
 			<button on:click={() => changeIndex(-1)}>上一题</button>
 			<button on:click={() => changeIndex(1)}>下一题</button>
 		</div>
+		{:else}
+			<div style="margin-bottom: 20px"><img height="200px" src="./logos/0.png" alt=""></div>
+		{/if}
 		<div>
 			{#each groupArr as g, i}
 				<button style="margin: 0 1px" on:click={() => goToGroup(i + 1)}>{i + 1}</button>
