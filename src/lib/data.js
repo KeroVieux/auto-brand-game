@@ -11,7 +11,10 @@ export const brands = [
     { img: './logos/b_9.png', answer: '1-9:阿尔法罗米欧-意大利' },
     { img: './logos/b_10.png', answer: '1-10:宝骏-中国' },
     { img: './logos/b_93.png', answer: '1-11:川汽野马-中国' },
-    { img: './logos/b_12.png', answer: '1-12:长城-中国' }
+    { img: './logos/b_12.png', answer: '1-12:长城-中国' },
+    { img: './logos/a_1.jpeg', answer: '1-13:香奈儿-法国' },
+    { img: './logos/a_2.jpeg', answer: '1-14:碧欧泉-法国' },
+    { img: './logos/a_3.jpeg', answer: '1-15:芳珂-日本' }
   ],
   [
     { img: './logos/b_13.png', answer: '2-1:标致-法国' },
@@ -25,7 +28,10 @@ export const brands = [
     { img: './logos/b_21.png', answer: '2-9:观致-中国' },
     { img: './logos/b_22.png', answer: '2-10:克莱斯勒-美国' },
     { img: './logos/b_23.png', answer: '2-11:福特-美国' },
-    { img: './logos/b_24.png', answer: '2-12:海马-中国' }
+    { img: './logos/b_24.png', answer: '2-12:海马-中国' },
+    { img: './logos/a_4.jpeg', answer: '2-13:希思黎-法国' },
+    { img: './logos/a_5.jpeg', answer: '2-14:肌肤之钥-日本' },
+    { img: './logos/a_6.jpeg', answer: '2-15:悦木之源-美国' },
   ],
   [
     { img: './logos/b_25.png', answer: '3-1:广汽-中国' },
@@ -39,7 +45,10 @@ export const brands = [
     { img: './logos/b_33.png', answer: '3-9:威兹曼-德国' },
     { img: './logos/b_34.png', answer: '3-10:福田-中国' },
     { img: './logos/b_35.png', answer: '3-11:雪铁龙-法国' },
-    { img: './logos/b_36.png', answer: '3-12:现代-韩国' }
+    { img: './logos/b_36.png', answer: '3-12:现代-韩国' },
+    { img: './logos/a_7.jpeg', answer: '3-13:雅诗兰黛-法国' },
+    { img: './logos/a_8.jpeg', answer: '3-14:娇兰-法国' },
+    { img: './logos/a_9.jpeg', answer: '3-15:安娜苏-法国' },
   ],
   [
     { img: './logos/b_37.png', answer: '4-1:西亚特-西班牙' },
@@ -53,7 +62,10 @@ export const brands = [
     { img: './logos/b_45.png', answer: '4-9:沃尔沃-瑞典' },
     { img: './logos/b_46.png', answer: '4-10:华泰-中国' },
     { img: './logos/b_47.png', answer: '4-11:哈飞-中国' },
-    { img: './logos/b_48.png', answer: '4-12:捷豹-英国' }
+    { img: './logos/b_48.png', answer: '4-12:捷豹-英国' },
+    { img: './logos/a_11.jpeg', answer: '4-13:科颜氏-美国' },
+    { img: './logos/a_12.jpeg', answer: '4-14:纪梵希-法国' },
+    { img: './logos/a_13.jpeg', answer: '4-15:迪奥-法国' },
   ],
   [
     { img: './logos/b_49.png', answer: '5-1:江淮-中国' },
@@ -67,7 +79,10 @@ export const brands = [
     { img: './logos/b_57.png', answer: '5-9:双龙-韩国' },
     { img: './logos/b_58.png', answer: '5-10:世爵-荷兰' },
     { img: './logos/b_59.png', answer: '5-11:奔驰-德国' },
-    { img: './logos/b_60.png', answer: '5-12:凯迪拉克-美国' }
+    { img: './logos/b_60.png', answer: '5-12:凯迪拉克-美国' },
+    { img: './logos/a_14.jpeg', answer: '5-13:圣罗兰-法国' },
+    { img: './logos/a_15.jpeg', answer: '5-14:赫莲娜-法国' },
+    { img: './logos/a_16.jpeg', answer: '5-15:娇韵诗-法国' },
   ],
   [
     { img: './logos/b_61.png', answer: '6-1:雷克萨斯-日本' },
@@ -81,7 +96,10 @@ export const brands = [
     { img: './logos/b_69.png', answer: '6-9:迈巴赫-德国' },
     { img: './logos/b_70.png', answer: '6-10:路虎-英国' },
     { img: './logos/b_71.png', answer: '6-11:玛莎拉蒂-意大利' },
-    { img: './logos/b_72.png', answer: '6-12:领克-中国' }
+    { img: './logos/b_72.png', answer: '6-12:领克-中国' },
+    { img: './logos/a_23.jpeg', answer: '6-13:茵芙纱-日本' },
+    { img: './logos/a_24.jpeg', answer: '6-14:植村秀-日本' },
+    { img: './logos/a_10.jpeg', answer: '6-15:魅可-加拿大' }
   ],
   [
     { img: './logos/b_73.png', answer: '7-1:菲亚特-意大利' },
@@ -95,7 +113,10 @@ export const brands = [
     { img: './logos/b_81.png', answer: '7-9:斯巴鲁-日本' },
     { img: './logos/b_82.png', answer: '7-10:纳智捷-中国' },
     { img: './logos/b_83.png', answer: '7-11:道奇-美国' },
-    { img: './logos/b_84.png', answer: '7-12:陆风-中国' }
+    { img: './logos/b_84.png', answer: '7-12:陆风-中国' },
+    { img: './logos/a_17.jpeg', answer: '7-13:莱伯妮-瑞士' },
+    { img: './logos/a_18.jpeg', answer: '7-14:茱莉蔻-澳大利亚' },
+    { img: './logos/a_19.jpeg', answer: '7-15:贝玲妃-美国' },
   ],
   [
     { img: './logos/b_85.png', answer: '8-1:MINI-英国' },
@@ -109,6 +130,9 @@ export const brands = [
     { img: './logos/b_11.png', answer: '8-9:奥迪-德国' },
     { img: './logos/b_94.png', answer: '8-10:江铃-中国' },
     { img: './logos/b_95.png', answer: '8-11:宝沃-中国' },
-    { img: './logos/b_96.png', answer: '8-12:起亚-韩国' }
+    { img: './logos/b_96.png', answer: '8-12:起亚-韩国' },
+    { img: './logos/a_20.jpeg', answer: '8-13:资生堂-日本' },
+    { img: './logos/a_21.jpeg', answer: '8-14:欧舒丹-法国' },
+    { img: './logos/a_22.jpeg', answer: '8-15:海蓝之谜-美国' },
   ]
 ]
