@@ -1,43 +1,54 @@
 <script>
-	import { brands } from './lib/data.js';
+	import { brands, gestures } from './lib/data.js';
 	let started = false
+	let mode = true
 	const numbers = {
 		group: 0,
 		index: 0
 	}
 	let showAnswer = false
-	let quiz = brands[numbers.group][numbers.index]
+	let quiz = null
 	const groupArr = new Array(8)
 	const changeIndex = (number) => {
-		if (!showAnswer) {
+		const games = mode ? brands : gestures
+		if (mode && !showAnswer) {
 			showAnswer = !showAnswer
-		} else if ((numbers.index < brands[numbers.group].length - 1 && number > 0) || (number < 0 && numbers.index > 0)) {
+		}else if ((numbers.index < games[numbers.group].length - 1 && number > 0) || (number < 0 && numbers.index > 0)) {
 			numbers.index += number
-			quiz = brands[numbers.group][numbers.index]
+			quiz = games[numbers.group][numbers.index]
 			showAnswer = false
 		}
 	}
 	const goToGroup = (number) => {
 		started = true
+		const games = mode ? brands : gestures
 		numbers.group = number - 1
 		numbers.index = 0
-		quiz = brands[numbers.group][numbers.index]
+		quiz = games[numbers.group][numbers.index]
 		showAnswer = false
+	}
+	const changeMode = () => {
+		mode = !mode
+		started = !started
 	}
 </script>
 
 <svelte:head>
-	<title>猜谜飞镖</title>
+	<title>大前端游戏</title>
 </svelte:head>
 <main style="height: 80%">
 	<section style="padding-top: 100px;">
 		{#if started}
-		<img height="200px" src="{quiz.img}" alt="">
-		<div style="height: 64px">
-			{#if (showAnswer)}
-				<h2>{quiz.answer}</h2>
+			{#if mode}
+				<img height="200px" src="{quiz.img}" alt="">
+				<div style="height: 64px">
+					{#if (showAnswer)}
+						<h2>{quiz.answer}</h2>
+					{/if}
+				</div>
+			{:else}
+				<h3>{quiz}</h3>
 			{/if}
-		</div>
 		<div style="margin-bottom: 10px;">
 			<button on:click={() => changeIndex(-1)}>上一题</button>
 			<button on:click={() => changeIndex(1)}>下一题</button>
@@ -49,6 +60,9 @@
 			{#each groupArr as g, i}
 				<button style="margin: 0 1px" on:click={() => goToGroup(i + 1)}>{i + 1}</button>
 			{/each}
+		</div>
+		<div style="padding-top: 20px">
+			<button style="margin: 0 1px" on:click={changeMode }>{#if mode}猜谜飞镖{:else}你划我猜{/if}</button>
 		</div>
 	</section>
 </main>

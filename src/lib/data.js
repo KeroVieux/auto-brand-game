@@ -1,3 +1,8 @@
+export const gestures = [
+    ['去','我','呃','人'],
+    ['他','有','우','이'],
+    ['ㅍ','啊','是','에'],
+]
 export const brands = [
   [
     { img: './logos/b_1.png', answer: '阿斯顿·马丁-英国' },
