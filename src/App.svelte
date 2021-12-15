@@ -1,17 +1,35 @@
 <script>
 	import { brands, gestures } from './lib/data.js';
 	let started = false
-	let mode = true
-	const numbers = {
-		group: 0,
-		index: 0
-	}
+	let mode = 0
 	let showAnswer = false
+	let numbers = null
+	let games = null
 	let quiz = null
-	const groupArr = new Array(8)
+	let title = null
+	let groupArr = null
+	const titles = ['猜谜飞镖','你划我猜','快乐传真']
+	const init = () => {
+		title = titles[mode]
+		numbers = {
+			group: 0,
+			index: 0
+		}
+		games = mode ? gestures : brands
+		if (mode < 2) {
+			quiz = games[numbers.group][numbers.index]
+			groupArr = new Array(8)
+		} else {
+			numbers.group = 8
+			numbers.index = 0
+			quiz = games[numbers.group][numbers.index]
+		}
+
+	}
+	init()
 	const changeIndex = (number) => {
-		const games = mode ? brands : gestures
-		if (mode && !showAnswer) {
+		const games = mode ? gestures : brands
+		if (!mode && !showAnswer) {
 			showAnswer = !showAnswer
 		}else if ((numbers.index < games[numbers.group].length - 1 && number > 0) || (number < 0 && numbers.index > 0)) {
 			numbers.index += number
@@ -21,15 +39,22 @@
 	}
 	const goToGroup = (number) => {
 		started = true
-		const games = mode ? brands : gestures
-		numbers.group = number - 1
-		numbers.index = 0
-		quiz = games[numbers.group][numbers.index]
-		showAnswer = false
+		if (mode < 2) {
+			numbers.group = number - 1
+			numbers.index = 0
+			quiz = games[numbers.group][numbers.index]
+			showAnswer = false
+		} else {
+			numbers.group = 2
+			numbers.index = 0
+			quiz = games[numbers.group][numbers.index]
+		}
+
 	}
-	const changeMode = () => {
-		mode = !mode
-		started = !started
+	const changeMode = (number) => {
+		mode = number
+		started = true
+		init()
 	}
 </script>
 
@@ -37,9 +62,15 @@
 	<title>大前端游戏</title>
 </svelte:head>
 <main style="height: 80%">
-	<section style="padding-top: 100px;">
+	<div style="padding-top: 20px">
+		<button style="margin: 0 1px" on:click={ () => changeMode(0) }>{titles[0]}</button>
+		<button style="margin: 0 1px" on:click={ () => changeMode(1) }>{titles[1]}</button>
+		<button style="margin: 0 1px" on:click={ () => changeMode(2) }>{titles[2]}</button>
+	</div>
+	<section style="padding-top: 80px;">
 		{#if started}
-			{#if mode}
+			<h1>{title}</h1>
+			{#if !mode}
 				<img height="200px" src="{quiz.img}" alt="">
 				<div style="height: 64px">
 					{#if (showAnswer)}
@@ -47,23 +78,24 @@
 					{/if}
 				</div>
 			{:else}
-				<h3>{quiz}</h3>
+				<div style="padding: 40px 0">
+					<h3 style="font-size: 52px">{quiz}</h3>
+				</div>
 			{/if}
 		<div style="margin-bottom: 10px;">
 			<button on:click={() => changeIndex(-1)}>上一题</button>
 			<button on:click={() => changeIndex(1)}>下一题</button>
 		</div>
 		{:else}
-			<div style="margin-bottom: 20px"><img height="200px" src="./logos/0.png" alt=""></div>
+			<div style="margin-bottom: 20px"><img height="400px" src="./logos/cover.jpg" alt=""></div>
 		{/if}
+		{#if started && mode < 2}
 		<div>
 			{#each groupArr as g, i}
 				<button style="margin: 0 1px" on:click={() => goToGroup(i + 1)}>{i + 1}</button>
 			{/each}
 		</div>
-		<div style="padding-top: 20px">
-			<button style="margin: 0 1px" on:click={changeMode }>{#if mode}猜谜飞镖{:else}你划我猜{/if}</button>
-		</div>
+		{/if}
 	</section>
 </main>
 <footer>
